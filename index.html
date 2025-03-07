@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liz Design</title>
 
-    <!-- Link para fontes -->
+    <!-- Link para a fonte Roboto Light -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Behind+The+Nineties&display=swap" rel="stylesheet">
 
-    <!-- Link correto para o CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- Referência ao CSS com caminho corrigido -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <!-- LOGO -->
     <header class="logo">
-        <img src="./img/Perfil.png" alt="Liz Design Logo">
+        <img src="./assets/img/Perfil.png" alt="Liz Design Logo">
         <h1>LizDesign</h1>
     </header>
 
@@ -29,22 +29,23 @@
     <!-- REDES SOCIAIS -->
     <section class="redes">
         <a href="http://Wa.me/75991192128" target="_blank">
-            <img src="./img/whatsapp.png" alt="WhatsApp">
+            <img src="./assets/img/whatsapp.png" alt="WhatsApp">
         </a>
         <a href="http://Behance.net/lizsacramento2" target="_blank">
-            <img src="./img/behance.png" alt="Behance">
+            <img src="./assets/img/behance.png" alt="Behance">
         </a>
         <a href="https://pin.it/4ji8l0q0P" target="_blank">
-            <img src="./img/pinterest.png" alt="Pinterest">
+            <img src="./assets/img/pinterest.png" alt="Pinterest">
         </a>
         <a href="http://Instagram.com/lizdesign.ai" target="_blank">
-            <img src="./img/instagram.png" alt="Instagram">
+            <img src="./assets/img/instagram.png" alt="Instagram">
         </a>
         <a href="https://www.tiktok.com/@lizdesign.ai" target="_blank">
-            <img src="./img/tiktok.png" alt="TikTok">
+            <img src="./assets/img/tiktok.png" alt="TikTok">
         </a>
     </section>
 
+    <!-- SEÇÃO CATÁLOGO -->
     <section class="catalogo">
         <h2>Catálogo</h2>
         <p>Conheça os meus serviços</p>
@@ -52,34 +53,35 @@
             <div class="slides">
                 <div class="slide">
                     <p>Branding e Identidade Visual</p>
-                    <img src="./img/Catalogo1.png" alt="Catálogo 1">
+                    <img src="./assets/img/Catalogo1.png" alt="Catálogo 1">
                 </div>
                 <div class="slide">
                     <p>Gestão de Instagram</p>
-                    <img src="./img/Catalogo2.png" alt="Catálogo 2">
+                    <img src="./assets/img/Catalogo2.png" alt="Catálogo 2">
                 </div>
                 <div class="slide">
                     <p>Papelaria Corporativa</p>
-                    <img src="./img/Catalogo3.png" alt="Catálogo 3">
+                    <img src="./assets/img/Catalogo3.png" alt="Catálogo 3">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- PORTFÓLIO -->
     <section class="portfolio">
         <h1>Portfólio</h1>
-        <p class="portfolio-description">Conheça alguns dos projetos que desenvolvi. Você pode conferi-los na íntegra acessando meu Behance.</p>
+        <p class="portfolio-description">Conheça alguns dos projetos que desenvolvi.</p>
         <h2 class="portfolio-subtitle">Gestão do Instagram</h2>
         <div class="slider-portfolio">
             <div class="slides-portfolio">
                 <div class="slide-portfolio active">
-                    <img src="./img/01.png" alt="Portfólio 1">
+                    <img src="./assets/img/01.png" alt="Portfólio 1">
                 </div>
                 <div class="slide-portfolio">
-                    <img src="./img/60segundos.png" alt="Portfólio 2">
+                    <img src="./assets/img/60segundos.png" alt="Portfólio 2">
                 </div>
                 <div class="slide-portfolio">
-                    <img src="./img/resultados.png" alt="Portfólio 3">
+                    <img src="./assets/img/resultados.png" alt="Portfólio 3">
                 </div>
             </div>
         </div>
@@ -87,37 +89,34 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <img src="./img/Perfil.png" alt="Foto de Perfil" class="profile-pic">
+            <img src="./assets/img/Perfil.png" alt="Foto de Perfil" class="profile-pic">
             <p class="footer-name">Liz Design</p>
             <p class="footer-rights">Todos os direitos reservados</p>
         </div>
     </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    function setupSlider(sliderSelector) {
-        const slider = document.querySelector(sliderSelector);
-        const slides = slider.querySelector('.slides');
-        const slideItems = slider.querySelectorAll('.slide');
-        const totalSlides = slideItems.length;
-        let currentIndex = 0;
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function setupSlider(sliderSelector) {
+            const slider = document.querySelector(sliderSelector);
+            const slides = slider.querySelector('.slides');
+            const slideItems = slider.querySelectorAll('.slide');
+            const totalSlides = slideItems.length;
+            let currentIndex = 0;
 
-        function showNextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            const offset = -currentIndex * 100;
-            slides.style.transform = `translateX(${offset}%)`;
+            function showNextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                const offset = -currentIndex * 100;
+                slides.style.transform = `translateX(${offset}%)`;
+            }
+
+            slides.style.display = 'flex';
+            slides.style.transition = 'transform 0.5s ease-in-out';
+            setInterval(showNextSlide, 3000);
         }
 
-        slides.style.display = 'flex';
-        slides.style.transition = 'transform 0.5s ease-in-out';
-
-        setInterval(showNextSlide, 3000);
-    }
-
-    setupSlider('.catalogo .slider');
-    setupSlider('.portfolio .slider-portfolio');
-});
-</script>
-
+        setupSlider('.catalogo .slider');
+    });
+    </script>
 </body>
 </html>
